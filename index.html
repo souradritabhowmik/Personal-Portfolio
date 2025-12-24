@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rita Bhowmik | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #FADADD;
+      --pink-soft: rgba(250, 218, 221, 0.35);
+      --bg: #0e0e11;
+      --card: #15151c;
+      --text: #f6f6f6;
+      --muted: #b8b8c6;
+      --glow: 0 0 40px rgba(250, 218, 221, 0.45);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: radial-gradient(circle at top, #1b1b26, var(--bg));
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent, #0e0e11);
+      pointer-events: none;
+    }
+
+    .hero {
+      z-index: 1;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--pink);
+      text-shadow: var(--glow);
+    }
+
+    .subtitle {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 6rem 10vw;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--pink);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: linear-gradient(145deg, var(--card), #101015);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, var(--pink-soft), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--pink);
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      padding: 3rem 10vw;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid #1f1f2a;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Floating background elements */
+    .orb {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      background: var(--pink);
+      filter: blur(120px);
+      opacity: 0.15;
+      animation: float 12s ease-in-out infinite;
+    }
+
+    .orb.one { top: 10%; left: 10%; }
+    .orb.two { bottom: 20%; right: 5%; animation-delay: 3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-40px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <header>
+    <div class="hero">
+      <h1>Rita Bhowmik</h1>
+      <p class="subtitle">Engineering • Technology • Creative Systems</p>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="section-title">Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Project Title</h3>
+        <p>Short description of what this project does, why it matters, and what technologies were used.</p>
+      </div>
+      <div class="card">
+        <h3>Project Title</h3>
+        <p>Another project description. This layout is designed to feel dynamic even though it’s static.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Awards & Recognition</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Award Name</h3>
+        <p>Brief explanation of the award and why it was earned.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">About Me</h2>
+    <div class="card">
+      <p>I’m an engineering student with an interest in building thoughtful, efficient, and creative technology. I enjoy working at the intersection of design and systems, and I’m always curious about how ideas become real-world tools.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Rita Bhowmik</p>
+  </footer>
+
+</body>
+</html>
